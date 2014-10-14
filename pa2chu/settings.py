@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -80,7 +81,7 @@ USE_TZ = True
 
 LOGIN_REDIRECT_URL = 'profile'
 LOGIN_URL = 'login'
-
+AUTH_USER_MODEL = 'chu2pa.UserStatus'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 STATIC_ROOT = 'staticfiles'
