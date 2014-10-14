@@ -86,7 +86,6 @@ LOGIN_URL = 'login'
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-
 try:
     from local_settings import *
 except ImportError:
