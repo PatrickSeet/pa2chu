@@ -11,6 +11,7 @@ from psycopg2.extensions import JSON
 from chu2pa.forms import EmailUserCreationForm
 from chu2pa.models import Calendar
 from pa2chu import settings
+import datetime
 
 
 def home(request):
@@ -29,12 +30,21 @@ def student(request):
 
 @csrf_exempt
 def student_check(request):
-    check_in = Calendar.objects.create(person=request.user, status=True)
+
+    current_datetime = datetime.datetime.now()
+
+    year = str(current_datetime)[:4]
+    month = str(current_datetime)[5:7]
+    day = str(current_datetime)[8:10]
+
+    fulldate = month + "/" + day + "/" + year
+
+    check_in = Calendar.objects.create(person=request.user, date=fulldate, status=True )
     person = check_in.person.username
-    date = check_in.date
     status = check_in.status
+
     result = {'person': person,
-              'date': date,
+              'date': fulldate,
               'status': status
                }
     return HttpResponse(json.dumps(result),
