@@ -12,7 +12,7 @@ class UserStatus(AbstractUser):
 
 
 class Calendar(models.Model):
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.CharField(max_length=100)
     person = models.ForeignKey(UserStatus, related_name="person")
     status = models.BooleanField(default=False)
 
