@@ -19,4 +19,14 @@ $(document).ready(function(){
         })
     });
 
+    $( "#datepicker" ).datepicker();
+
+    $(document).on('click', '.find', function(){
+        console.log("hell ya");
+        teacher_choose = $("#datepicker").val();
+        console.log(teacher_choose);
+    });
+
+
+
 });
