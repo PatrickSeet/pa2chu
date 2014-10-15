@@ -15,18 +15,14 @@
 
 {% block content %}
 
-        <h1 align="center">Home Page</h1>
+        <h1 align="center">Student</h1>
 
-    <div id="go_student"></div>
-    <div id="go_teacher"></div>
 
-    {% if current_user.title == 'T' %}
-        You Are: <a href="{% url 'teacher' %}">teacher</a>
-    {% else %}
-        You Are: <a href="{% url 'student' %}">student</a>
-    {% endif %}
-    <hr>
-    <p><a href="{% url 'home' %}">Shortcut 1</a></p>
-    <p><a href="{% url 'home' %}">Shortcut 2</a></p>
+    <button id="student_check" class="btn btn-default">Check-in</button>
+    <div id="student_status"></div>
+
+
+    <p><a href="{% url 'home' %}">home</a></p>
+    <p><a href="{% url 'teacher' %}">teacher</a></p>
 
 {% endblock content %}
