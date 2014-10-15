@@ -15,11 +15,13 @@ $(document).ready(function() {
                     for (i=0; i<data.length; i++) {
                         person = data[i].person;
                         date = data[i].date;
+                        hour = data[i].hour;
                         status = data[i].status;
                         $('#teacher_view').append(
                             "<tr align='center'>" +
                             "<td>" + person + "</td>" +
                             "<td>" + date + "</td>" +
+                            "<td>" + hour + "</td>" +
                             "<td>" + status + "</td>" +
                             "</tr>"
                         )

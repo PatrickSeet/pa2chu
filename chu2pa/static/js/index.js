@@ -12,6 +12,7 @@ $(document).ready(function(){
                     "<tr align='center'>" +
                     "<td>" + data.person + "</td>" +
                     "<td>" + data.date + "</td>" +
+                    "<td>" + data.hour + "</td>" +
                     "<td>" + data.status + "</td>" +
                     "</tr>"
                 )

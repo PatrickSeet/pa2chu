@@ -33,20 +33,23 @@ def student(request):
 def student_check(request):
 
     current_datetime = datetime.datetime.now()
-
     year = str(current_datetime)[:4]
     month = str(current_datetime)[5:7]
     day = str(current_datetime)[8:10]
+    hour = str(current_datetime)[11:13]
+    min = str(current_datetime)[14:16]
 
     fulldate = month + "/" + day + "/" + year
-
+    fullhour = hour + ":" + min
+    print fullhour
     data = json.loads(request.body)
-    check_in = Calendar.objects.create(person=request.user, date=fulldate, status=data )
+    check_in = Calendar.objects.create(person=request.user, date=fulldate, hour=fullhour, status=data )
     person = check_in.person.username
     status = check_in.status
 
     result = {'person': person,
               'date': fulldate,
+              'hour': fullhour,
               'status': status
                }
     return HttpResponse(json.dumps(result),
@@ -63,6 +66,7 @@ def teacher_overview(request):
         collection.append({
             'person': person_name,
             'date': student.date,
+            'hour': student.hour,
             'status': student.status
             })
     return HttpResponse(json.dumps(collection),

@@ -26,13 +26,14 @@
             <input type="radio" name="group1" value="offical leave"> Official Leave
             <button id="student_check" class="btn btn-default">Check-in</button>
             <hr>
-
+            <p><b>STUDENT ATTENDING HISTORY</b></p>
 
             <table class='table table-hover table-striped'>
                 <thead>
                     <tr align='center'>
                         <td>Person</td>
                         <td>Date</td>
+                        <td>Time</td>
                         <td>Check-In</td>
                     </tr>
                 </thead>
@@ -41,6 +42,7 @@
                         <tr align='center'>
                             <td>{{ log.person }}</td>
                             <td>{{ log.date }}</td>
+                            <td>{{ log.hour }}</td>
                             <td>{{ log.status }}</td>
                         </tr>
                     {% endfor %}
