@@ -7,6 +7,10 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', 'chu2pa.views.home', name='home'),
+    url(r'^student_check/$', 'chu2pa.views.student_check', name='student_check'),
+    url(r'^teacher/$', 'chu2pa.views.teacher', name='teacher'),
+    url(r'^student/$', 'chu2pa.views.student', name='student'),
+
     url(r'^admin/', include(admin.site.urls)),
     url(r'^profile/$', 'chu2pa.views.profile', name='profile'),
     url(r'^faq/$', 'chu2pa.views.faq', name='faq'),
