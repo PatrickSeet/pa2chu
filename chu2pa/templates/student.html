@@ -9,20 +9,54 @@
     <link type="text/css" href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{#    <script src="{% static 'js/bootstrap.min.js' %}"></script>#}
+{#    <script src="{% static 'js/bootstrap.js' %}"></script>#}
     <script src="{% static 'js/index.js' %}"></script>
-{#    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>#}
 {% endblock head %}
 
 {% block content %}
+    <div class="row">
+        <div class="col-md-2">
+            <h1 align="center">Student</h1>
+        </div>
+        <div class="col-md-8">
+            <input type="radio" name="group1" value="attend"> Attend
+            <input type="radio" name="group1" value="sick" checked> Sick
+            <input type="radio" name="group1" value="personal reason"> Personal Reason
+            <input type="radio" name="group1" value="offical leave"> Official Leave
+            <button id="student_check" class="btn btn-default">Check-in</button>
+            <hr>
+            <p><b>STUDENT ATTENDING HISTORY</b></p>
 
-        <h1 align="center">Student</h1>
+            <table class='table table-hover table-striped'>
+                <thead>
+                    <tr align='center'>
+                        <td>Person</td>
+                        <td>Date</td>
+                        <td>Time</td>
+                        <td>Check-In</td>
+                    </tr>
+                </thead>
+                <tbody id='checkin_show'>
+                    {% for log in logs %}
+                        <tr align='center'>
+                            <td>{{ log.person }}</td>
+                            <td>{{ log.date }}</td>
+                            <td>{{ log.hour }}</td>
+                            <td>{{ log.status }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
 
-    <button id="student_check" class="btn btn-default">Check-in</button>
-    <div id="student_status"></div>
+            <hr>
+            <p><a href="{% url 'home' %}">home</a></p>
+            <p><a href="{% url 'teacher' %}">teacher</a></p>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
 
 
-    <p><a href="{% url 'home' %}">home</a></p>
-    <p><a href="{% url 'teacher' %}">teacher</a></p>
 
 {% endblock content %}

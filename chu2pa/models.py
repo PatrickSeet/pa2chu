@@ -13,8 +13,9 @@ class UserStatus(AbstractUser):
 
 class Calendar(models.Model):
     date = models.CharField(max_length=100)
+    hour = models.CharField(max_length=100)
     person = models.ForeignKey(UserStatus, related_name="person")
-    status = models.BooleanField(default=False)
+    status = models.CharField(max_length=100, default=False)
 
     def __unicode__(self):
         return self.date

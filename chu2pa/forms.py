@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from chu2pa.models import UserStatus
+from chu2pa.models import UserStatus, Calendar
 
 
 class EmailUserCreationForm(UserCreationForm):
@@ -24,13 +24,14 @@ class EmailUserCreationForm(UserCreationForm):
         except User.DoesNotExist:
             return username
         raise forms.ValidationError(self.error_messages['duplicate_username'])
+
     class Meta(UserCreationForm.Meta):
         model = UserStatus
         fields = ("username", "email", "password1", "password2", "first_name", "last_name", "title")
 
 class MyUserAdmin(UserAdmin):
     add_form = EmailUserCreationForm
-# class CalendarForm()
+
 
 
 

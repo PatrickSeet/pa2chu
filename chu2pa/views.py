@@ -2,6 +2,7 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.core.mail import EmailMultiAlternatives
+from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -25,29 +26,50 @@ def teacher(request):
     return render(request, 'teacher.html')
 
 def student(request):
-
-    return render(request, 'student.html')
+    logs = Calendar.objects.filter(person=request.user)
+    return render(request, 'student.html', {'logs': logs})
 
 @csrf_exempt
 def student_check(request):
 
     current_datetime = datetime.datetime.now()
-
     year = str(current_datetime)[:4]
     month = str(current_datetime)[5:7]
     day = str(current_datetime)[8:10]
+    hour = str(current_datetime)[11:13]
+    min = str(current_datetime)[14:16]
 
     fulldate = month + "/" + day + "/" + year
-
-    check_in = Calendar.objects.create(person=request.user, date=fulldate, status=True )
+    fullhour = hour + ":" + min
+    print fullhour
+    data = json.loads(request.body)
+    check_in = Calendar.objects.create(person=request.user, date=fulldate, hour=fullhour, status=data )
     person = check_in.person.username
     status = check_in.status
 
     result = {'person': person,
               'date': fulldate,
+              'hour': fullhour,
               'status': status
                }
     return HttpResponse(json.dumps(result),
+                        content_type='application/json')
+
+@csrf_exempt
+def teacher_overview(request):
+    collection = []
+    data = json.loads(request.body)
+    students_of_day = Calendar.objects.filter(date=data)
+    for student in students_of_day:
+        person = model_to_dict(student.person)
+        person_name = person['username']
+        collection.append({
+            'person': person_name,
+            'date': student.date,
+            'hour': student.hour,
+            'status': student.status
+            })
+    return HttpResponse(json.dumps(collection),
                         content_type='application/json')
 
 @login_required
