@@ -8,6 +8,7 @@ urlpatterns = patterns('',
 
     url(r'^$', 'chu2pa.views.home', name='home'),
     url(r'^student_check/$', 'chu2pa.views.student_check', name='student_check'),
+    url(r'^teacher_overview/$', 'chu2pa.views.teacher_overview', name='teacher_overview'),
     url(r'^teacher/$', 'chu2pa.views.teacher', name='teacher'),
     url(r'^student/$', 'chu2pa.views.student', name='student'),
 
