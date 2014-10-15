@@ -14,10 +14,31 @@
 {% endblock head %}
 
 {% block content %}
+{#<div class="container">#}
+    <section style="padding-top: 450px;" class="home">
+        <div id="go_student"></div>
+        <div id="go_teacher"></div>
 
-        <h1 align="center">Home Page</h1>
+        <h1>Welcome to PA2CHU</h1>
+        <h3>WHERE YOU WONT SKIP A CLASS</h3>
 
-    <p><a href="{% url 'home' %}">Shortcut 1</a></p>
-    <p><a href="{% url 'home' %}">Shortcut 2</a></p>
+        {% if current_user.title == 'T' %}
+            You Are: <a href="{% url 'teacher' %}">teacher</a>
+        {% else %}
+            You Are: <a href="{% url 'student' %}">student</a>
+        {% endif %}
+        <p><a href="{% url 'home' %}">Shortcut 1</a></p>
+        <p><a href="{% url 'home' %}">Shortcut 2</a></p>
+
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+    {#            <img src="{% static "img/teacherblue.png" %}" alt="" width="600" />#}
+                <img style="margin-top: 10px;" src="{% static "img/students.png" %}" alt="" height="60" />
+            </div>
+        </div>
+
+    </section>
+{#</div>#}
 
 {% endblock content %}
