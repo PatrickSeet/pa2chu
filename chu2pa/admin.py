@@ -1,7 +1,6 @@
 from django.contrib import admin
-
-# Register your models here.
 from chu2pa.models import UserStatus, Calendar
 
+# Register your models here.
 admin.site.register(UserStatus)
 admin.site.register(Calendar)
