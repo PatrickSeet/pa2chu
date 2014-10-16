@@ -16,21 +16,27 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+<<<<<<< HEAD
 
+=======
+          <li><a href="{% url 'faq' %}">FAQ</a></li>
+>>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
 {#        <li><a href="{% url 'home' %}">Paint</a></li>#}
 {#        <li><a href="{% url 'home' %}">Memory</a></li>#}
 {#        <li><a href="{% url 'home' %}">Tower of Hanoi</a></li>#}
       </ul>
+<<<<<<< HEAD
 {#      <form class="navbar-form navbar-left" role="search" method="get" action="/search/">#}
 {#        <div class="form-group">#}
 {#          <input type="text" name="q" id="id_q" class="form-control" placeholder="Search Event">#}
 {#        </div>#}
 {#        <button type="submit" class="btn btn-default">Submit</button>#}
 {#      </form>#}
+=======
+>>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'faq' %}">FAQ</a></li>
         {% if user.is_authenticated %}
-{#            <li><a href="{% url 'profile' %}">Welcome~{{ user.username }}!</a></li>#}
+            <li><a href="{% url 'profile' %}">Welcome~{{ user.username }}!</a></li>
             <li><a href="{% url 'profile' %}">Profile</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
             {% if user.is_staff %}

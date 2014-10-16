@@ -87,7 +87,6 @@ AUTH_USER_MODEL = 'chu2pa.UserStatus'
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
-
 try:
     from local_settings import *
 except ImportError:

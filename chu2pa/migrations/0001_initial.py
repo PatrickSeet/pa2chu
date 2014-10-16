@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
             name='Calendar',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('date', models.DateTimeField(auto_now_add=True)),
+                ('date', models.CharField(max_length=100)),
                 ('status', models.BooleanField(default=False)),
                 ('person', models.ForeignKey(related_name=b'person', to=settings.AUTH_USER_MODEL)),
             ],
