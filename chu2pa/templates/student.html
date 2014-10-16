@@ -9,24 +9,6 @@
     <link type="text/css" href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<<<<<<< HEAD
-    <script src="{% static 'js/index.js' %}"></script>
-{#    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>#}
-{% endblock head %}
-
-{% block content %}
-
-        <h1 align="center">Student</h1>
-
-
-    <button id="student_check" class="btn btn-default">Check-in</button>
-    <div id="student_status"></div>
-
-
-    <p><a href="{% url 'home' %}">home</a></p>
-    <p><a href="{% url 'teacher' %}">teacher</a></p>
-    <img src="{% static "img/pupilblue.png" %}" alt="" width="600" />
-=======
 {#    <script src="{% static 'js/bootstrap.min.js' %}"></script>#}
 {#    <script src="{% static 'js/bootstrap.js' %}"></script>#}
     <script src="{% static 'js/index.js' %}"></script>
@@ -74,8 +56,7 @@
         </div>
         <div class="col-md-2"></div>
     </div>
-
->>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
+    <img src="{% static "img/pupilblue.png" %}" alt="" width="600" />
 
 
 {% endblock content %}

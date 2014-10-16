@@ -2,10 +2,7 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 from django.core.mail import EmailMultiAlternatives
-<<<<<<< HEAD
-=======
 from django.forms import model_to_dict
->>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -22,35 +19,23 @@ def home(request):
     data = {'current_user': request.user}
     return render(request, 'home.html', data)
 
+
 def faq(request):
     return render(request, 'faq.html')
+
 
 def teacher(request):
     return render(request, 'teacher.html')
 
 def student(request):
-<<<<<<< HEAD
-
-    return render(request, 'student.html')
-=======
     logs = Calendar.objects.filter(person=request.user)
     return render(request, 'student.html', {'logs': logs})
->>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
+
 
 @csrf_exempt
 def student_check(request):
 
     current_datetime = datetime.datetime.now()
-<<<<<<< HEAD
-
-    year = str(current_datetime)[:4]
-    month = str(current_datetime)[5:7]
-    day = str(current_datetime)[8:10]
-
-    fulldate = month + "/" + day + "/" + year
-
-    check_in = Calendar.objects.create(person=request.user, date=fulldate, status=True )
-=======
     year = str(current_datetime)[:4]
     month = str(current_datetime)[5:7]
     day = str(current_datetime)[8:10]
@@ -62,23 +47,17 @@ def student_check(request):
     print fullhour
     data = json.loads(request.body)
     check_in = Calendar.objects.create(person=request.user, date=fulldate, hour=fullhour, status=data )
->>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
     person = check_in.person.username
     status = check_in.status
 
     result = {'person': person,
               'date': fulldate,
-<<<<<<< HEAD
-=======
               'hour': fullhour,
->>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
               'status': status
                }
     return HttpResponse(json.dumps(result),
                         content_type='application/json')
 
-<<<<<<< HEAD
-=======
 @csrf_exempt
 def teacher_overview(request):
     collection = []
@@ -96,7 +75,6 @@ def teacher_overview(request):
     return HttpResponse(json.dumps(collection),
                         content_type='application/json')
 
->>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
 @login_required
 def profile(request):
     return render(request, 'profile.html', {})

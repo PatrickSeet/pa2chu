@@ -23,7 +23,6 @@
         <h1>Welcome to PA2CHU</h1>
         <h3>WHERE YOU WONT SKIP A CLASS</h3>
 
-<<<<<<< HEAD
         {% if current_user.title == 'T' %}
             You Are: <a href="{% url 'teacher' %}">teacher</a>
         {% else %}
@@ -42,18 +41,6 @@
 
     </section>
 {#</div>#}
-=======
-    <div id="go_student"></div>
-    <div id="go_teacher"></div>
 
-    {% if current_user.title == 'T' %}
-        You Are: <a href="{% url 'teacher' %}">teacher</a>
-    {% else %}
-        You Are: <a href="{% url 'student' %}">student</a>
-    {% endif %}
-    <hr>
-    <p><a href="{% url 'home' %}">Shortcut 1</a></p>
-    <p><a href="{% url 'home' %}">Shortcut 2</a></p>
->>>>>>> 7d5ca9f58d7e301285c97cb0f360632a4f0e1c68
 
 {% endblock content %}
