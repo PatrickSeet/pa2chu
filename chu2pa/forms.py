@@ -24,14 +24,10 @@ class EmailUserCreationForm(UserCreationForm):
         except User.DoesNotExist:
             return username
         raise forms.ValidationError(self.error_messages['duplicate_username'])
-
     class Meta(UserCreationForm.Meta):
         model = UserStatus
         fields = ("username", "email", "password1", "password2", "first_name", "last_name", "title")
 
 class MyUserAdmin(UserAdmin):
     add_form = EmailUserCreationForm
-
-
-
 

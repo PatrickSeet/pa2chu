@@ -19,8 +19,10 @@ def home(request):
     data = {'current_user': request.user}
     return render(request, 'home.html', data)
 
+
 def faq(request):
     return render(request, 'faq.html')
+
 
 def teacher(request):
     return render(request, 'teacher.html')
@@ -28,6 +30,7 @@ def teacher(request):
 def student(request):
     logs = Calendar.objects.filter(person=request.user)
     return render(request, 'student.html', {'logs': logs})
+
 
 @csrf_exempt
 def student_check(request):
