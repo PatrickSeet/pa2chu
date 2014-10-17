@@ -27,6 +27,7 @@ def faq(request):
 def teacher(request):
     return render(request, 'teacher.html')
 
+
 def student(request):
     logs = Calendar.objects.filter(person=request.user)
     return render(request, 'student.html', {'logs': logs})
@@ -79,6 +80,7 @@ def teacher_overview(request):
 def profile(request):
     return render(request, 'profile.html', {})
 
+
 def register(request):
     if request.method == 'POST':
         form = EmailUserCreationForm(request.POST)
@@ -88,7 +90,7 @@ def register(request):
             html_content = '<h2>Thanks {} {} for signing up at {}!</h2> <div>I hope you enjoy using our site</div>'.format(user.first_name, user.last_name, user.date_joined)
             msg = EmailMultiAlternatives("Welcome!", text_content, settings.DEFAULT_FROM_EMAIL, [user.email])
             msg.attach_alternative(html_content, "text/html")
-            msg.send()
+            # msg.send()
             return redirect("profile")
     else:
         form = EmailUserCreationForm()
