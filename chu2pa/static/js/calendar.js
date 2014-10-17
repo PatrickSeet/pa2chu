@@ -5,6 +5,7 @@ $(document).ready(function() {
     $("#datepicker").datepicker({
         onSelect: function (dateText, inst) {
             dateAsString = dateText.toString();
+
             $('#teacher_view').html("");
             $.ajax ({
                 url: '/teacher_overview/',
@@ -12,6 +13,7 @@ $(document).ready(function() {
                 dataType: "json",
                 data: JSON.stringify(dateAsString),
                 success: function(data){
+
                     for (i=0; i<data.length; i++) {
                         person = data[i].person;
                         date = data[i].date;

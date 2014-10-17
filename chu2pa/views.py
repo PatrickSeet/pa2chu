@@ -27,6 +27,7 @@ def faq(request):
 def teacher(request):
     return render(request, 'teacher.html')
 
+
 def student(request):
     logs = Calendar.objects.filter(person=request.user)
     return render(request, 'student.html', {'logs': logs})
